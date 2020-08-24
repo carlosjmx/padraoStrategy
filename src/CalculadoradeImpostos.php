@@ -1,17 +1,14 @@
 <?php 
 
-namespace App\PadraoStrategy; 
+namespace App\PadraoStrategy;
+
+use App\PadraoStrategy\Impostos\Impostos;
 
 class CalculadoradeImpostos {
  
-    public function calcula(Orcamento $orcamento, string $imposto ){
+    public function calcula(Orcamento $orcamento, Impostos $imposto ){
 
-        switch($imposto){
-            case "ISS":
-                return $orcamento->valor * 0.01;
-            case "ICMS":
-                return $orcamento->valor * 0.06;
-        }
+            return $imposto->calculaImposto($orcamento);
     }
  
 }
